@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import http from "http"
 import { errorHandler } from "./middlewares/errorHandler.js";
+import ExpertRoutes from "./routes/ExpertRoute.js";
 import { Server } from "socket.io";
 import { ConnectDB } from "./config/db.js";
 
@@ -11,8 +12,10 @@ dotenv.config()
 ConnectDB();
 const app = express();
 
-app.use(express.json())
-app.use(errorHandler)
+app.use(express.json());
+app.use("/experts",ExpertRoutes);
+
+app.use(errorHandler);
 
 const PORT=process.env.PORT || 7071
 
@@ -27,7 +30,7 @@ io.on('connection', (socket) => {
 
 app.set('io', io);
 
-app.listen(PORT,()=>
+server.listen(PORT,()=>
 {
-    console.log(`Server Listening on PORT${PORT}`)
+    console.log(`Server Listening on PORT ${PORT}`)
 })

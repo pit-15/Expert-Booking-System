@@ -17,7 +17,7 @@ const expertSchema =new  mongoose.Schema(
             type:Number,
             required:true
         },
-        availableSolts:
+        availableSlots:
         [{
             date:String,
             time:String,

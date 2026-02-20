@@ -43,6 +43,11 @@ const BookingSchema= new mongoose.Schema(
             enum:["Pending","Confirmed","Completed"],
             default:"Pending",
         }
-
+    },
+    {
+        timestapmps:true
     }
 )
+
+const Booking = mongoose.model("Booking",BookingSchema)
+export default Booking;
