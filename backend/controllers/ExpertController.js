@@ -14,9 +14,9 @@ export const getExperts= asyncHandler(async(req,res)=>
         {
              query.name={$regex : name ,$options:'i'}
         }
-        if(category)
+        if(category) 
         {
-            query.category = category
+            query.category = { $regex: `^${category.trim()}$`, $options: 'i' };     
         }
         const experts = await Expert.find(query).limit(limit*1).skip((page-1)*limit).exec();
         
