@@ -1,10 +1,11 @@
 import express from "express"
-import {  } from "../controllers/BookingController.js"
+import {createBooking,getbookingbyEmail,updateBookingStatus} from "../controllers/BookingController.js"
 
 const router = express.Router()
 
 
-router.get("/",getExperts);
-router.get("/:id",getExpertsbyID)
+router.post("/",createBooking);
+router.get("/",getbookingbyEmail);
+router.patch("/:id/status",updateBookingStatus)
 
-export default router 
+export default router; 

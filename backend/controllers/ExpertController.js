@@ -34,11 +34,11 @@ export const getExperts= asyncHandler(async(req,res)=>
 //Get request with expert's ID
 export const getExpertsbyID = asyncHandler(async(req,res)=>
 {
-    if(!mongoose.Types.ObjectID.isValid(req.params.id))
+    if(!mongoose.Types.ObjectId.isValid(req.params.id))
     {
         throw new errorResponse("Invalid ID format",400);
     }
-    
+
     const expert = await Expert.findById(req.params.id);
     if(!expert)
     {

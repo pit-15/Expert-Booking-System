@@ -12,7 +12,7 @@ const expertSchema =new  mongoose.Schema(
             type:String,
             required:true,
         },
-        Experience:
+        experience:
         {
             type:Number,
             required:true
@@ -24,7 +24,7 @@ const expertSchema =new  mongoose.Schema(
             isBooked:
             {
                 type:Boolean,
-                default:true
+                default:false
             }
         }]
     })

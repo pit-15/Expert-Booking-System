@@ -2,7 +2,7 @@ import Expert from "../models/Expert.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import errorResponse from "../middlewares/errorResponse.js";
 import Booking from "../models/Booking.js";
-
+import mongoose from "mongoose";
 
 // Create Booking
 export const createBooking = asyncHandler(async(req,res)=>
@@ -13,11 +13,22 @@ export const createBooking = asyncHandler(async(req,res)=>
     {
         throw new errorResponse("Invalid Expert ID", 400);
     }
-    
+
     if(!expertID || !clientName || !clientEmail || !clientPhoneNumber || !date || ! timeSlot)
     {
         throw new errorResponse("Missing requried Fields",400)
     }
+
+    const existingBooking = await Booking.findOne({
+        expertID,
+        date,
+        timeSlot
+    });
+
+    if (existingBooking) {
+        throw new errorResponse("This slot is already booked", 400);
+    }
+
 
     const updatedExpert = await Expert.findOneAndUpdate
     (

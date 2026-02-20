@@ -4,7 +4,7 @@ const BookingSchema= new mongoose.Schema(
     {
         expertID:
         {
-            type:mongoose.SchemaTypes.ObjectId,
+            type:mongoose.Schema.Types.ObjectId,
             ref:"Expert",
             required:true
         },

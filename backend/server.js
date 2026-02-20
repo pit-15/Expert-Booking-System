@@ -2,7 +2,8 @@ import express from "express"
 import dotenv from "dotenv"
 import http from "http"
 import { errorHandler } from "./middlewares/errorHandler.js";
-import ExpertRoutes from "./routes/ExpertRoute.js";
+import ExpertRoutes from "./routes/ExpertRoutes.js";
+import BookingRoutes from "./routes/BookingRoutes.js";
 import { Server } from "socket.io";
 import { ConnectDB } from "./config/db.js";
 
@@ -14,7 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use("/experts",ExpertRoutes);
-
+app.use("/bookings",BookingRoutes)
 app.use(errorHandler);
 
 const PORT=process.env.PORT || 7071
