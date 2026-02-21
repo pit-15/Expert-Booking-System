@@ -13,7 +13,7 @@ function App() {
             <Link to="/" className="text-xl font-bold text-indigo-600">ExpertHub</Link>
             <div className="space-x-8">
               <Link to="/" className="text-sm font-medium hover:text-indigo-600">Find Experts</Link>
-              <Link to="/my-bookings" className="text-sm font-medium hover:text-indigo-600">My History</Link>
+              <Link to="/my-bookings" className="text-sm font-medium hover:text-indigo-600">My Bookings</Link>
             </div>
           </div>
         </nav>

@@ -45,7 +45,7 @@ const MyBookings = () => {
                   {b.expertId?.name?.charAt(0) || "E"}
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg">{b.expertId?.name || "Expert"}</h4>
+                  <h4 className="font-bold text-gray-900 text-lg">{b.expertID?.name || "Expert Name"}</h4>
                   <div className="flex items-center gap-2 text-gray-400 text-sm">
                     <Clock size={14} /> {b.date} at {b.timeSlot}
                   </div>
